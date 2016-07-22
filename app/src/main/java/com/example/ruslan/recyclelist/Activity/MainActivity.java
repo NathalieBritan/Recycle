@@ -1,8 +1,9 @@
 package com.example.ruslan.recyclelist.Activity;
 
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.example.ruslan.recyclelist.Adapter.RecycleAdapter;
@@ -30,7 +31,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         recyclerView=(RecyclerView)findViewById(R.id.recycle_view);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        if(getResources().getConfiguration().orientation== Configuration.ORIENTATION_PORTRAIT){
+            recyclerView.setLayoutManager(new GridLayoutManager(this,1));
+        }
+        else
+        {
+            recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+        }
+
+
         recyclerView.setAdapter(new RecycleAdapter(getSampleArrayList()));
     }
 }
