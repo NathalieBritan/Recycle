@@ -75,14 +75,14 @@ public class RecycleAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
         if (textMessage != null) {
             vh1.getTextName().setText("Name"+textMessage.getTextName());
             vh1.getTextMessage().setText("Message:  " + textMessage.getTextMessage());
-            vh1.getTextTime().setText("Time"+textMessage.getTime());
+            vh1.getTextTime().setText(textMessage.getTime());
         }
     }
 
     private void configureViewHolder2(ViewHolder2 vh2,int position) {
         ImageMessage imageMessage=(ImageMessage)messages.get(position);
         vh2.getImageMessage().setImageResource(R.drawable.icon_airplane);
-        vh2.getTextTime().setText("Time"+imageMessage.getTime());
+        vh2.getTextTime().setText(imageMessage.getTime());
     }
 
     @Override
